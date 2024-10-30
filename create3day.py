@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import datetime
 from dateutil.relativedelta import relativedelta
-
+ 
 def is_weekend(date):
     return date.weekday() >= 5  # Saturday is 5, Sunday is 6
 
