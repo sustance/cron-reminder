@@ -37,11 +37,11 @@ def main():
     for month, day in today_dates:
         today_date = datetime.datetime(current_year, month, day)
         
-        # Calculate two working days before
-        twodays_before = get_working_day_before(get_working_day_before(today_date, holidays), holidays)
+        # Calculate three working days before
+        threedays_before = get_working_day_before(get_working_day_before(today_date, holidays), holidays)
         
-        # Add twodays.sh entry
-        crontab_entries.append(f"0 1 {twodays_before.day} {twodays_before.month} * /home/id2/.local/bin/threedays.sh >/dev/null 2>&1")
+        # Add threedays.sh entry
+        crontab_entries.append(f"0 1 {threedays_before.day} {threedays_before.month} * /home/id2/.local/bin/threedays.sh >/dev/null 2>&1")
         
         # Add today.sh entry
         crontab_entries.append(f"0 1 {day} {month} * /home/id2/.local/bin/today.sh >/dev/null 2>&1")
